@@ -1,0 +1,84 @@
+body {
+    /*height: 551px;*/
+    /*width: 980px;*/
+    padding: 15px;
+    overflow: hidden;
+}
+.pane{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    padding: 10px;
+}
+
+.pane.left
+{
+    left:0;
+    width: 40%;
+}
+
+.pane.right{
+    right:0;
+    width: 60%;
+}
+
+.img-in-panel {
+    display: block;
+    max-width: 96%;
+    height: auto;
+    margin: 2%;
+}
+
+.img-footer {
+    min-height: 40px;
+    padding-left: 50px;
+    padding-top: 10px;
+    position: relative;
+}
+
+.img-footer img {
+    display: block;
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    left: 5px;
+}
+
+.fadein {
+    position: relative;
+    /*height: 450px;*/
+    /*width: 356px;*/
+}
+
+.fadein .fade-item {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+#announcementsContainer{
+    overflow: hidden;
+    padding:0;
+}
+
+#announcements{
+    position: relative;
+    width: 1000%;
+}
+
+.announcement{
+    padding: 15px;
+    display: inline-block;
+    vertical-align: top;
+    width: 10%;
+}
+
+.announcement img{
+    max-width: 100px;
+    float : right;
+}
+
+#birthdays li{
+    display: inline-block;
+    margin-right: 15px;
+}
