@@ -68,7 +68,8 @@ body {
 }
 
 .announcement {
-    padding: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
     display: inline-block;
     vertical-align: top;
     width: 10%;
@@ -86,4 +87,7 @@ body {
 
 .dialContainer {
     float: right;
+}
+.instagram.panel{
+    height: 100%;
 }
