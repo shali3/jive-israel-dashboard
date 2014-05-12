@@ -5,7 +5,7 @@ var leftOffset;
 function fetchAnnouncements() {
     $.ajax({
         type: 'GET',
-        url: "http://10.72.110.34:1337/Route?to=https://brewspace.jiveland.com/api/core/v3/places/814076/announcements?activeOnly=true",
+        url: "http://10.72.110.34:1337/getannouncements",
         dataType: 'jsonp',
         crossDomain: true,
         success: function (obj) {
