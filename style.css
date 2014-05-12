@@ -4,21 +4,21 @@ body {
     padding: 15px;
     overflow: hidden;
 }
-.pane{
+
+.pane {
     position: absolute;
     top: 0;
     bottom: 0;
     padding: 10px;
 }
 
-.pane.left
-{
-    left:0;
+.pane.left {
+    left: 0;
     width: 40%;
 }
 
-.pane.right{
-    right:0;
+.pane.right {
+    right: 0;
     width: 60%;
 }
 
@@ -57,29 +57,33 @@ body {
     top: 0;
 }
 
-#announcementsContainer{
+#announcementsContainer {
     overflow: hidden;
-    padding:0;
+    padding: 0;
 }
 
-#announcements{
+#announcements {
     position: relative;
     width: 1000%;
 }
 
-.announcement{
+.announcement {
     padding: 15px;
     display: inline-block;
     vertical-align: top;
     width: 10%;
 }
 
-.announcement img{
+.announcement img {
     max-width: 100px;
-    float : right;
+    float: right;
 }
 
-#birthdays li{
+#birthdays li {
     display: inline-block;
     margin-right: 15px;
+}
+
+.dialContainer {
+    float: right;
 }

@@ -1,5 +1,7 @@
 var min_tag_id;
 var after_instagram_refresh;
+var instagramTickCount = 0;
+var instagramUpdateSec = 30;
 
 function createInstargramElement(item) {
     var timeago = $.timeago(new Date(item.created_time * 1000));
@@ -14,10 +16,16 @@ function createInstargramElement(item) {
 }
 
 function initInstagramAnimation() {
+    $(".dial").knob({
+        max: instagramUpdateSec,
+        width: 20,
+        height: 20,
+        readOnly: true
+    }).show();
+
     $('.fadein .fade-item').first().show();
 
     setInterval(function () {
-
         if(!stoped) {
             var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
             if (nextItem.length == 0 || after_instagram_refresh) {
@@ -47,7 +55,7 @@ function fetchInstagram() {
                 min_tag_id = responseData.pagination.min_tag_id;
                 addInstagramItems(responseData.data);
                 initInstagramAnimation();
-                refreshInstagram();
+                refreshInstagramTick();
             },
             error: function () {
                 alert('GET from instagram failed.');
@@ -55,8 +63,13 @@ function fetchInstagram() {
     );
 }
 
-function refreshInstagram() {
-    if (min_tag_id) {
+function refreshInstagramTick() {
+    instagramTickCount = (instagramTickCount + 1) % (instagramUpdateSec + 1);
+    $('.dial').val(instagramTickCount).trigger('change');
+    if (instagramTickCount < instagramUpdateSec) {
+        setTimeout(refreshInstagramTick, 1000);
+    }
+    else if (min_tag_id) {
         $.ajax({
             type: 'GET',
             dataType: 'jsonp',
@@ -73,7 +86,7 @@ function refreshInstagram() {
                 console.log('GET from instagram failed.');
             },
             complete: function () {
-                setTimeout(refreshInstagram,30000);
+                setTimeout(refreshInstagramTick, 1000);
             }});
     }
 }
