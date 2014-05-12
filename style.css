@@ -81,6 +81,10 @@ body {
     float: right;
 }
 
+.announcement .counter{
+    float: right;
+}
+
 #birthdays li {
     display: inline-block;
     margin-right: 15px;
