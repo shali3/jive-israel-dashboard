@@ -30,7 +30,7 @@ function updateBirthdays(birthdays) {
 
 
 function layoutBirthdays() {
-    $('#announcements').height($(window).height() - $('#birthday-box').height() - 84);
+    $('#announcements').height($(window).height() - $('#birthday-box').height() - 83);
 }
 
 function fetchBirthdays() {

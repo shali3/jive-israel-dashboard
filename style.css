@@ -88,6 +88,15 @@ body {
 .dialContainer {
     float: right;
 }
-.instagram.panel{
+
+.instagram.panel {
     height: 100%;
+}
+
+#firebaseapp {
+    width: 100%;
+    height: 600px;
+    display: none;
+    border: none;
+    margin-top: -20px;
 }

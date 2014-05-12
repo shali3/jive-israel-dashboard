@@ -28,9 +28,7 @@
     <div class="pane left">
         <div class="panel panel-primary instagram">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-instagram fa-lg"></i> Tag photos you want to share with the
-                    office
-                    <div class="dialContainer">
+                <h3 class="panel-title"><i class="fa fa-instagram fa-lg"></i> #jiveisrael<div class="dialContainer">
                         <input type="text" class="dial" style="display: none">
                     </div>
                 </h3>
@@ -62,8 +60,8 @@
         </div>
     </div>
 </div>
-<iframe id="firebaseapp" style="width : 100% ;height : 600px; display: none; border: none;"
-        src="https://jive.firebaseapp.com/dashboard.html#/league/MedHouse/season/2014%20Q2"></iframe>
+<iframe id="firebaseapp" src="https://jive.firebaseapp.com/dashboard.html#/league/MedHouse/season/2014%20Q2"></iframe>
+
 <script id="instagram-template" type="x-tmpl-mustache">
 <div class="fade-item">
     <img class="img-responsive" src="{{ imgSrc }}" alt="instagram">
@@ -74,24 +72,17 @@
         <i>{{ timeago }} </i>
     </div>
 </div>
-
-
-
 </script>
-
 <script id="announcement-template" type="x-tmpl-mustache">
 <div class="announcement">
     <h3>{{ title }}</h3>
-    <span class="label label-info">{{ author }}, {{ place }}</span>
+    <span class="label label-primary">{{ author }}, {{ place }}</span>
     {{#imgSrc}}<img src="{{imgSrc}}">{{/imgSrc}}
     {{{ body }}}
 </div>
-
 </script>
-
 <script id="birthday-template" type="x-tmpl-mustache">
 <li><span class="label label-primary">{{day}} {{month}}</span> {{name}}</li>
-
 </script>
 </body>
 </html>
