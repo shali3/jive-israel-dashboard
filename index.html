@@ -41,7 +41,7 @@
     <div class="pane right">
         <div id="announcements-box" class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-bullhorn fa-lg"></i> Office News</h3>
+                <h3 class="panel-title"><i class="fa fa-bullhorn fa-lg"></i> Office News <span id="announcements-counter" style="float: right"></span></h3>
             </div>
             <div id="announcementsContainer" class="panel-body">
                 <div id="announcements">
@@ -75,7 +75,6 @@
 </script>
 <script id="announcement-template" type="x-tmpl-mustache">
 <div class="announcement">
-    <span class="counter">{{ index }} / {{ total-announcements-count }}</span>
     <h3>{{ title }}</h3>
     <span class="label label-primary">{{ author }}, {{ place }}</span>
     {{#imgSrc}}<img src="{{imgSrc}}">{{/imgSrc}}

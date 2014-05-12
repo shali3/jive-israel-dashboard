@@ -1,33 +1,28 @@
-var lastAnnouncementWidth;
-var leftOffset;
-var firstFetch =true;
-
-function maxleftOffset(){
-    return $('#announcementsContainer').width() * $('.announcement').length;
-}
+var currentAnnouncmentIndex;
+var totalAnnouncementsCount;
+var firstFetch = true;
 
 function fetchAnnouncements() {
     $.ajax({
         type: 'GET',
-        url:  getAnnouncementsUrl,
+        url: getAnnouncementsUrl,
         dataType: 'jsonp',
         crossDomain: true,
         success: function (obj) {
 
             $('#announcements').empty();
-            //var obj = JSON.parse(data);
             var template = $('#announcement-template').html();
             Mustache.parse(template);   // optional, speeds up future uses
+
+            totalAnnouncementsCount = obj.list.length;
 
             for (var i = 0; i < obj.list.length; i++) {
                 var data = {
                     title: obj.list[i].subject,
                     author: obj.list[i].author.displayName,
                     place: obj.list[i].parentPlace.name,
-                    body: obj.list[i].content.text,
-                    index : i+1,
-                    "total-announcements-count": obj.list.length
-            };
+                    body: obj.list[i].content.text
+                };
 
                 if (obj.list[i].contentImages && obj.list[i].contentImages[0]) {
                     data.imgSrc = obj.list[i].contentImages[0].ref;
@@ -38,13 +33,7 @@ function fetchAnnouncements() {
                 $('#announcements').append(rendered);
             }
 
-            if($('#announcementsContainer').width() != 0){
-                lastAnnouncementWidth = $('#announcementsContainer').width();
-                leftOffset = -$('#announcementsContainer').width();
-            }else{
-                leftOffset = lastAnnouncementWidth;
-            }
-
+            currentAnnouncmentIndex = -1;
             if(firstFetch){
                 loopAnnouncements();
                 firstFetch = false;
@@ -56,28 +45,46 @@ function fetchAnnouncements() {
     });
 }
 
-$(function () {
-    fetchAnnouncements();
-    setInterval(fetchAnnouncements,milliBetweenAnnouncementsFetch);
-});
-function hideFirebaseapp(){
+function hideFirebaseapp() {
     $('#firebaseapp').fadeOut();
     $('#inner-body').fadeIn();
     stoped = false;
     loopAnnouncements();
 }
 
-function loopAnnouncements(){
-    leftOffset+= $('#announcementsContainer').width();
-    if(leftOffset >= maxleftOffset()){
-        leftOffset = -$('#announcementsContainer').width();
+function layoutAnnouncements(withAnimation) {
+    var width = $('#announcementsContainer').width();
+    var left = currentAnnouncmentIndex * (-width);
+
+    if (withAnimation) {
+        $('#announcements').animate({'left': left});
+    }
+    else {
+        $('#announcements').css('left', left);
+    }
+}
+
+function loopAnnouncements() {
+    currentAnnouncmentIndex = (currentAnnouncmentIndex + 1) % (totalAnnouncementsCount + 1);
+    if (currentAnnouncmentIndex == totalAnnouncementsCount) {
         stoped = true;
         $('#inner-body').fadeOut();
-        $('#firebaseapp').fadeIn();
+        $('#firebaseapp').fadeIn(function () {
+            $('#announcements').css('left', 0);
+        });
         setTimeout(hideFirebaseapp, milliForFireapp);
     }
-    else{
-        $('#announcements').animate({"left" : "-"+leftOffset});
+    else {
+        $('#announcements-counter').html((currentAnnouncmentIndex + 1) + '/' + totalAnnouncementsCount);
+        layoutAnnouncements(true);
         setTimeout(loopAnnouncements, milliPerAnnouncement);
     }
 }
+
+$(function () {
+    fetchAnnouncements();
+    setInterval(fetchAnnouncements, milliBetweenAnnouncementsFetch);
+    $(window).resize(function () {
+        layoutAnnouncements(false)
+    });
+});
