@@ -2,48 +2,6 @@ var birthdays;
 var lastUpdatedMonth=-1;
 var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 
-function addInstargram(item) {
-    var timeago = $.timeago(new Date(item.created_time * 1000));
-    var imgSrc = item.images.standard_resolution.url;
-    var text = item.caption.text;
-    var user = item.user.username;
-    var avatar = item.user.profile_picture;
-
-    var template = $('#instagram-template').html();
-    Mustache.parse(template);   // optional, speeds up future uses
-    var rendered = Mustache.render(template, {imgSrc: imgSrc, timeago: timeago, username: user, avatar: avatar, caption: text });
-    $('#instagram-panel').append(rendered);
-}
-
-function fetchInstagram() {
-    $.ajax({
-            type: 'GET',
-            dataType: 'jsonp',
-            crossDomain: true,
-            url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced',
-            success: function (responseData, textStatus, jqXHR) {
-                var items = responseData.data;
-
-                $.each(items, function (i, item) {
-                    addInstargram(item);
-                });
-
-                $('.fadein .fade-item:gt(0)').hide();
-
-                setInterval(function () {
-                    var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
-                    if (nextItem.length == 0) {
-                        nextItem = $('.fadein :first-child');
-                    }
-                    nextItem.fadeIn();
-                }, 4000); // 4 seconds
-            },
-            error: function (responseData, textStatus, errorThrown) {
-                alert('GET from instagram failed.');
-            }}
-    );
-}
-
 function parseDate(input) {
     var parts = input.split('/');
     // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])
