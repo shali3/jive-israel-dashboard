@@ -4,10 +4,6 @@
         "birthday": "29/12/92"
     },
     {
-        "name": "Ella Rorman",
-        "birthday": "08/07/92"
-    },
-    {
         "name": "Lidan Hazout",
         "birthday": "20/01/92"
     },
@@ -20,20 +16,8 @@
         "birthday": "27/06/91"
     },
     {
-        "name": "Tom Cohen",
-        "birthday": "02/01/91"
-    },
-    {
         "name": "Hadar Geva",
         "birthday": "13/04/90"
-    },
-    {
-        "name": "Daniel Kazak",
-        "birthday": "31/08/89"
-    },
-    {
-        "name": "Natalie Elzara",
-        "birthday": "03/03/89"
     },
     {
         "name": "Shali Shaltiel",
@@ -68,10 +52,6 @@
         "birthday": "09/04/87"
     },
     {
-        "name": "Sharon Grihovod",
-        "birthday": "12/01/87"
-    },
-    {
         "name": "Nadav Makleff",
         "birthday": "13/06/86"
     },
@@ -82,10 +62,6 @@
     {
         "name": "Shiran Dadon",
         "birthday": "07/12/85"
-    },
-    {
-        "name": "Re'em Bensimhon",
-        "birthday": "19/05/85"
     },
     {
         "name": "Lev Waisberg",
@@ -100,16 +76,8 @@
         "birthday": "28/12/84"
     },
     {
-        "name": "David Kohen",
-        "birthday": "13/12/84"
-    },
-    {
         "name": "David Meoded",
         "birthday": "24/11/84"
-    },
-    {
-        "name": "Yoav Weiss",
-        "birthday": "02/18/83"
     },
     {
         "name": "Arthur Teplitzki",
