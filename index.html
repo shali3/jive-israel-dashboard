@@ -20,41 +20,43 @@
     <script src="js/instagram.js"></script>
     <script src="js/announcements.js"></script>
     <script src="js/birthdays.js"></script>
-
+    <script src="js/globals.js"></script>
 </head>
 <body>
-<div class="pane left">
-    <div class="panel panel-primary" style="padding: 10px;height: 100%;">
-        <div class="text-center">
-            <i class="fa fa-instagram fa-2x"></i> Tag photos you want to share with the office
-        </div>
+<div id="inner-body">
+    <div class="pane left">
+        <div class="panel panel-primary" style="padding: 10px;height: 100%;">
+            <div class="text-center">
+                <i class="fa fa-instagram fa-2x"></i> Tag photos you want to share with the office
+            </div>
 
-        <div id="instagram-panel" class="fadein">
-        </div>
-    </div>
-</div>
-<div class="pane right">
-    <div id="announcements-box" class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-bullhorn fa-lg"></i> Office News</h3>
-        </div>
-        <div id="announcementsContainer" class="panel-body">
-            <div  id="announcements">
+            <div id="instagram-panel" class="fadein">
             </div>
         </div>
     </div>
-    <div id="birthday-box" class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title"><i class="fa fa-gift fa-lg"></i> Birthdays</h3>
+    <div class="pane right">
+        <div id="announcements-box" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-bullhorn fa-lg"></i> Office News</h3>
+            </div>
+            <div id="announcementsContainer" class="panel-body">
+                <div  id="announcements">
+                </div>
+            </div>
         </div>
-        <div class="panel-body">
-            <ul id="birthdays" class="list-unstyled">
+        <div id="birthday-box" class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-gift fa-lg"></i> Birthdays</h3>
+            </div>
+            <div class="panel-body">
+                <ul id="birthdays" class="list-unstyled">
 
-            </ul>
+                </ul>
+            </div>
         </div>
     </div>
-
 </div>
+<iframe id="firebaseapp" style="width : 100% ;height : 600px; display: none; border: none;"src="https://jive.firebaseapp.com/dashboard.html#/league/MedHouse/season/2014%20Q2"></iframe>
 <script id="instagram-template" type="x-tmpl-mustache">
 <div class="fade-item">
     <img class="img-responsive" src="{{ imgSrc }}" alt="instagram">

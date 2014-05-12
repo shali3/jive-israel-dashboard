@@ -1,3 +1,6 @@
+var announcementWidth;
+var maxleftOffset;
+var leftOffset;
 
 function fetchAnnouncements() {
     $.ajax({
@@ -27,11 +30,11 @@ function fetchAnnouncements() {
                 var rendered = Mustache.render(template, data);
                 $('#announcements').append(rendered);
             }
-            setInterval(function(){
-            var width = $('#announcementsContainer').width();
-                    $('#announcements').animate({"left" : "-"+width});
-            }, 1000);
 
+            announcementWidth = $('#announcementsContainer').width();
+            maxleftOffset = announcementWidth * $('.announcement').length;
+            leftOffset = 0;
+            loopAnnouncements();
         },
         error: function (xhr, status, error) {
             alert("announcements error");
@@ -42,3 +45,24 @@ function fetchAnnouncements() {
 $(function () {
     fetchAnnouncements();
 });
+function hideFirebaseapp(){
+    $('#firebaseapp').fadeOut();
+    $('#inner-body').fadeIn();
+    stoped = false;
+    loopAnnouncements();
+}
+
+function loopAnnouncements(){
+    leftOffset+= $('#announcementsContainer').width();
+    if(leftOffset >= maxleftOffset){
+        leftOffset = -$('#announcementsContainer').width();
+        stoped = true;
+        $('#inner-body').fadeOut();
+        $('#firebaseapp').fadeIn();
+        setTimeout(hideFirebaseapp, 10000);
+    }
+    else{
+    $('#announcements').animate({"left" : "-"+leftOffset});
+    setTimeout(loopAnnouncements, 6000);
+    }
+}

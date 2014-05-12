@@ -17,12 +17,15 @@ function initInstagramAnimation() {
     $('.fadein .fade-item').first().show();
 
     setInterval(function () {
-        var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
-        if (nextItem.length == 0 || after_instagram_refresh) {
-            after_instagram_refresh = false;
-            nextItem = $('.fadein :first-child');
+
+        if(!stoped) {
+            var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
+            if (nextItem.length == 0 || after_instagram_refresh) {
+                after_instagram_refresh = false;
+                nextItem = $('.fadein :first-child');
+            }
+            nextItem.fadeIn();
         }
-        nextItem.fadeIn();
     }, 5000); // 4 seconds
 }
 
