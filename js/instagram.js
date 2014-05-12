@@ -1,5 +1,5 @@
 var min_tag_id;
-var next_instagram_photo;
+var after_instagram_refresh;
 
 function createInstargramElement(item) {
     var timeago = $.timeago(new Date(item.created_time * 1000));
@@ -14,16 +14,18 @@ function createInstargramElement(item) {
 }
 
 function initInstagramAnimation() {
-    $('.fadein .fade-item:gt(0)').hide();
+    $('.fadein .fade-item').first().show();
 
     setInterval(function () {
         var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
-        if (nextItem.length == 0) {
+        if (nextItem.length == 0 || after_instagram_refresh) {
+            after_instagram_refresh = false;
             nextItem = $('.fadein :first-child');
         }
         nextItem.fadeIn();
     }, 5000); // 4 seconds
 }
+
 function addInstagramItems(items) {
     var elements = [];
     $.each(items, function (i, item) {
@@ -38,13 +40,13 @@ function fetchInstagram() {
             dataType: 'jsonp',
             crossDomain: true,
             url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced',
-            success: function (responseData, textStatus, jqXHR) {
+            success: function (responseData) {
                 min_tag_id = responseData.pagination.min_tag_id;
                 addInstagramItems(responseData.data);
                 initInstagramAnimation();
                 refreshInstagram();
             },
-            error: function (responseData, textStatus, errorThrown) {
+            error: function () {
                 alert('GET from instagram failed.');
             }}
     );
@@ -61,6 +63,7 @@ function refreshInstagram() {
                 if (responseData.data.length > 0) {
                     min_tag_id = responseData.pagination.min_tag_id;
                     addInstagramItems(responseData.data);
+                    after_instagram_refresh = true;
                 }
             },
             error: function () {
@@ -71,3 +74,7 @@ function refreshInstagram() {
             }});
     }
 }
+
+$(function () {
+    fetchInstagram();
+});
