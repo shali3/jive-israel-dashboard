@@ -30,7 +30,7 @@ function fetchAnnouncements() {
             };
 
                 if (obj.list[i].contentImages && obj.list[i].contentImages[0]) {
-                    data.imgSrc = obj.list[i].contentImages[0].ref;
+                    data.imgSrc = server +  obj.list[i].contentImages[0].ref;
                 }
 
 
