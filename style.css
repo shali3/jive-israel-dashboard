@@ -30,16 +30,17 @@ body {
 }
 
 .img-footer {
-    min-height: 40px;
-    padding-left: 50px;
+    min-height: 60px;
+    padding-left: 70px;
     padding-top: 10px;
     position: relative;
+    font-size: 16px;
 }
 
 .img-footer img {
     display: block;
-    height: 40px;
-    width: 40px;
+    height: 60px;
+    width: 60px;
     position: absolute;
     left: 5px;
 }
