@@ -75,6 +75,7 @@
 </script>
 <script id="announcement-template" type="x-tmpl-mustache">
 <div class="announcement">
+    <span class="counter">{{ index }} / {{ total-announcements-count }}</span>
     <h3>{{ title }}</h3>
     <span class="label label-primary">{{ author }}, {{ place }}</span>
     {{#imgSrc}}<img src="{{imgSrc}}">{{/imgSrc}}
