@@ -26,7 +26,7 @@ function initInstagramAnimation() {
     $('.fadein .fade-item').first().show();
 
     setInterval(function () {
-        if(!stoped) {
+        if (!stoped) {
             var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
             if (nextItem.length == 0 || after_instagram_refresh) {
                 after_instagram_refresh = false;
@@ -47,20 +47,16 @@ function addInstagramItems(items) {
 }
 function fetchInstagram() {
     $.ajax({
-            type: 'GET',
-            dataType: 'jsonp',
-            crossDomain: true,
-            url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced',
-            success: function (responseData) {
-                min_tag_id = responseData.pagination.min_tag_id;
-                addInstagramItems(responseData.data);
-                initInstagramAnimation();
-                refreshInstagramTick();
-            },
-            error: function () {
-                alert('GET from instagram failed.');
-            }}
-    );
+        type: 'GET',
+        dataType: 'jsonp',
+        crossDomain: true,
+        url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced',
+        success: function (responseData) {
+            min_tag_id = responseData.pagination.min_tag_id;
+            addInstagramItems(responseData.data);
+            initInstagramAnimation();
+            refreshInstagramTick();
+        }});
 }
 
 function refreshInstagramTick() {

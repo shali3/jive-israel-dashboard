@@ -5,7 +5,7 @@ var firstFetch = true;
 function fetchAnnouncements() {
     $.ajax({
         type: 'GET',
-        url: getAnnouncementsUrl,
+        url: server + "/getannouncements",
         dataType: 'jsonp',
         crossDomain: true,
         success: function (obj) {
@@ -40,7 +40,7 @@ function fetchAnnouncements() {
             }
         },
         error: function (xhr, status, error) {
-            alert("announcements error");
+            console.log("announcements error");
         }
     });
 }
