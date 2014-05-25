@@ -25,7 +25,7 @@ function fetchAnnouncements() {
                 };
 
                 if (obj.list[i].contentImages && obj.list[i].contentImages[0]) {
-                    data.imgSrc = server +  obj.list[i].contentImages[0].ref;
+                    data.imgSrc = server + obj.list[i].contentImages[0].ref;
                 }
 
 
@@ -34,8 +34,8 @@ function fetchAnnouncements() {
             }
 
             currentAnnouncmentIndex = -1;
-            if(firstFetch){
-                loopAnnouncements();
+            if (firstFetch) {
+                initAnimation();
                 firstFetch = false;
             }
         },
@@ -43,13 +43,6 @@ function fetchAnnouncements() {
             console.log("announcements error");
         }
     });
-}
-
-function hideFirebaseapp() {
-    $('#firebaseapp').fadeOut();
-    $('#inner-body').fadeIn();
-    stoped = false;
-    loopAnnouncements();
 }
 
 function layoutAnnouncements(withAnimation) {
@@ -64,21 +57,14 @@ function layoutAnnouncements(withAnimation) {
     }
 }
 
-function loopAnnouncements() {
-    currentAnnouncmentIndex = (currentAnnouncmentIndex + 1) % (totalAnnouncementsCount + 1);
-    if (currentAnnouncmentIndex == totalAnnouncementsCount) {
-        stoped = true;
-        $('#inner-body').fadeOut();
-        $('#firebaseapp').fadeIn(function () {
-            $('#announcements').css('left', 0);
-        });
-        setTimeout(hideFirebaseapp, milliForFireapp);
-    }
-    else {
-        $('#announcements-counter').html((currentAnnouncmentIndex + 1) + '/' + totalAnnouncementsCount);
-        layoutAnnouncements(true);
-        setTimeout(loopAnnouncements, milliPerAnnouncement);
-    }
+function initAnimation() {
+    setInterval(function () {
+        if (showingJive) {
+            currentAnnouncmentIndex = (currentAnnouncmentIndex + 1) % (totalAnnouncementsCount + 1);
+            $('#announcements-counter').html((currentAnnouncmentIndex + 1) + '/' + totalAnnouncementsCount);
+            layoutAnnouncements(currentAnnouncmentIndex > 0);
+        }
+    }, milliPerAnnouncement);
 }
 
 $(function () {

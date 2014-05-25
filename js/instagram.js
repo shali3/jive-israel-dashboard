@@ -26,7 +26,7 @@ function initInstagramAnimation() {
     $('.fadein .fade-item').first().show();
 
     setInterval(function () {
-        if (!stoped) {
+        if (showingJive) {
             var nextItem = $('.fadein .fade-item:visible').fadeOut().next('.fade-item');
             if (nextItem.length == 0 || after_instagram_refresh) {
                 after_instagram_refresh = false;
@@ -34,7 +34,7 @@ function initInstagramAnimation() {
             }
             nextItem.fadeIn();
         }
-    }, 5000); // 4 seconds
+    }, milliPerInstagram);
 }
 
 function addInstagramItems(items) {
