@@ -63,9 +63,9 @@ function updateCounter() {
 function initAnimation() {
     setInterval(function () {
         if (showingJive) {
-            currentAnnouncmentIndex = (currentAnnouncmentIndex + 1) % (totalAnnouncementsCount + 1);
+            currentAnnouncmentIndex = (currentAnnouncmentIndex + 1) % totalAnnouncementsCount;
             updateCounter();
-            layoutAnnouncements(currentAnnouncmentIndex > 0);
+            layoutAnnouncements(true);
         }
     }, milliPerAnnouncement);
 }
