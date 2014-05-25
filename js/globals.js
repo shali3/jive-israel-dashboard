@@ -3,7 +3,7 @@
  */
 var debug = window.location.href.indexOf("#debug") != -1;
 var showingJive = true;
-var milliPerAnnouncement = 10000;
+var milliPerAnnouncement = 20000;
 var milliPerInstagram = 5000;
 var milliBetweenAnnouncementsFetch = 120000;
 var milliForFireapp = 20000;
