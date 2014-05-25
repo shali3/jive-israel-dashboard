@@ -1,4 +1,4 @@
-var currentAnnouncmentIndex;
+var currentAnnouncmentIndex = 0;
 var totalAnnouncementsCount;
 var firstFetch = true;
 
@@ -58,7 +58,7 @@ function layoutAnnouncements(withAnimation) {
 }
 
 function updateCounter() {
-    $('#announcements-counter').html((currentAnnouncmentIndex + 1) + '/' + totalAnnouncementsCount)
+    $('#announcements-counter').html(Math.min(currentAnnouncmentIndex + 1, totalAnnouncementsCount) + '/' + totalAnnouncementsCount)
 }
 function initAnimation() {
     setInterval(function () {
