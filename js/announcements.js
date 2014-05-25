@@ -33,7 +33,7 @@ function fetchAnnouncements() {
                 $('#announcements').append(rendered);
             }
 
-            currentAnnouncmentIndex = -1;
+            updateCounter();
             if (firstFetch) {
                 initAnimation();
                 firstFetch = false;
@@ -57,11 +57,14 @@ function layoutAnnouncements(withAnimation) {
     }
 }
 
+function updateCounter() {
+    $('#announcements-counter').html((currentAnnouncmentIndex + 1) + '/' + totalAnnouncementsCount)
+}
 function initAnimation() {
     setInterval(function () {
         if (showingJive) {
             currentAnnouncmentIndex = (currentAnnouncmentIndex + 1) % (totalAnnouncementsCount + 1);
-            $('#announcements-counter').html((currentAnnouncmentIndex + 1) + '/' + totalAnnouncementsCount);
+            updateCounter();
             layoutAnnouncements(currentAnnouncmentIndex > 0);
         }
     }, milliPerAnnouncement);
