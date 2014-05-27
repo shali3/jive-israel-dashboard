@@ -1,5 +1,3 @@
-var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
-
 function parseDate(input) {
     var parts = input.split('/');
     // new Date(year, month [, day [, hours[, minutes[, seconds[, ms]]]]])

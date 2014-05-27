@@ -9,6 +9,7 @@ var milliBetweenAnnouncementsFetch = 120000;
 var milliForFireapp = 20000;
 var milliForJiveIsrael = 60000;
 var server = "http://10.72.110.2:1337";
+var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 
 if (debug) {
     milliPerAnnouncement = milliPerAnnouncement / 10;
@@ -34,3 +35,25 @@ function toggleViews() {
         setTimeout(toggleViews, milliForJiveIsrael);
     }
 }
+
+function get2Digit(number) {
+    return ("0" + number).slice(-2);
+}
+
+$(function () {
+    var clockTemplate = $('#clock-template').html();
+    Mustache.parse(clockTemplate);   // optional, speeds up future uses
+
+    setInterval(function () {
+        var now = new Date();
+        var data = {
+            day: now.getDate(),
+            month: monthNames[now.getMonth()],
+            h: get2Digit(now.getHours()),
+            m: get2Digit(now.getMinutes()),
+            s: get2Digit(now.getSeconds())
+        };
+        var rendered = Mustache.render(clockTemplate, data);
+        $('#clock').html(rendered);
+    }, 1000);
+})

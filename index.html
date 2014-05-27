@@ -50,7 +50,7 @@
         </div>
         <div id="birthday-box" class="panel panel-primary">
             <div class="panel-heading">
-                <h3 class="panel-title"><i class="fa fa-gift fa-lg"></i> Birthdays</h3>
+                <h3 class="panel-title"><i class="fa fa-gift fa-lg"></i> Birthdays<span id="clock" style="float: right"></span></h3>
             </div>
             <div class="panel-body">
                 <ul id="birthdays" class="list-unstyled">
@@ -84,5 +84,10 @@
 <script id="birthday-template" type="x-tmpl-mustache">
 <li><span class="label label-primary">{{day}} {{month}}</span> {{name}}</li>
 </script>
+
+<script id="clock-template" type="x-tmpl-mustache">
+<i class="fa fa-clock-o fa-lg"></i> {{day}} {{month}} {{h}}:{{m}}:{{s}}
+</script>
+
 </body>
 </html>
