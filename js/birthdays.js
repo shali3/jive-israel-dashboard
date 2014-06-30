@@ -39,7 +39,7 @@ function fetchBirthdays() {
             return item;
         });
         birthdays.sort(function (a, b) {
-            return b.birthday.getDate() - a.birthday.getDate();
+            return a.birthday.getDate() - b.birthday.getDate();
         });
 
         updateBirthdays(birthdays);
