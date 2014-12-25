@@ -19,7 +19,7 @@ if (debug) {
     milliForJiveIsrael = milliForJiveIsrael / 10;
 }
 
-setTimeout(toggleViews, milliForJiveIsrael);
+//setTimeout(toggleViews, milliForJiveIsrael);
 
 function toggleViews() {
     if (showingJive) {
