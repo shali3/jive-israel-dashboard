@@ -50,7 +50,7 @@ function fetchInstagram() {
         type: 'GET',
         dataType: 'jsonp',
         crossDomain: true,
-        url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced',
+        url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced&count=10',
         success: function (responseData) {
             min_tag_id = responseData.pagination.min_tag_id;
             addInstagramItems(responseData.data);
