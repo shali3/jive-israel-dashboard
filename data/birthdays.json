@@ -4,16 +4,8 @@
         "birthday": "29/12/92"
     },
     {
-        "name": "Lidan Hazout",
-        "birthday": "20/01/92"
-    },
-    {
         "name": "Noam Razin",
         "birthday": "15/12/91"
-    },
-    {
-        "name": "Zohar Gad",
-        "birthday": "27/01/91"
     },
     {
         "name": "Hadar Geva",
@@ -42,14 +34,6 @@
     {
         "name": "Bar Avidan",
         "birthday": "03/07/87"
-    },
-    {
-        "name": "Kfir Peled",
-        "birthday": "06/06/87"
-    },
-    {
-        "name": "Meir Reuveni",
-        "birthday": "09/04/87"
     },
     {
         "name": "Nadav Makleff",
@@ -92,10 +76,6 @@
         "birthday": "16/12/83"
     },
     {
-        "name": "Zvika Ekhous",
-        "birthday": "10/23/81"
-    },
-    {
         "name": "Moshe Bixenshpaner",
         "birthday": "24/06/82"
     },
@@ -120,10 +100,6 @@
         "birthday": "25/05/80"
     },
     {
-        "name": "Roy Antebi",
-        "birthday": "16/07/78"
-    },
-    {
         "name": "Yuval Twig",
         "birthday": "15/11/77"
     },
@@ -140,8 +116,28 @@
         "birthday": "27/06/75"
     },
     {
-        "name": "Victor Bronstein",
-        "birthday": "07/20/71"
+        "name": "Idan Ziv",
+        "birthday": "28/11/82"
+    },
+    {
+        "name": "Yaniv Chen",
+        "birthday": "25/03/79"
+    },
+    {
+        "name": "Eran Amir",
+        "birthday": "16/01/79"
+    },
+    {
+        "name": "Ayelet Cohen",
+        "birthday": "06/06/91"
+    },
+    {
+        "name": "Omer Yair",
+        "birthday": "01/07/84"
+    },
+    {
+        "name": "Tzvika Stein",
+        "birthday": "17/05/82"
     },
     {
         "name": "Afik Udi",
