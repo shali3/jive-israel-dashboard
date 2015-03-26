@@ -69,11 +69,11 @@ function initAnimation() {
         }
     }, milliPerAnnouncement);
 }
-
-$(function () {
-    fetchAnnouncements();
-    setInterval(fetchAnnouncements, milliBetweenAnnouncementsFetch);
-    $(window).resize(function () {
-        layoutAnnouncements(false)
-    });
-});
+//
+//$(function () {
+//    fetchAnnouncements();
+//    setInterval(fetchAnnouncements, milliBetweenAnnouncementsFetch);
+//    $(window).resize(function () {
+//        layoutAnnouncements(false)
+//    });
+//});

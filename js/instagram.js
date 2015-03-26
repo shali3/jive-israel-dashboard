@@ -50,7 +50,7 @@ function fetchInstagram() {
         type: 'GET',
         dataType: 'jsonp',
         crossDomain: true,
-        url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced&count=10',
+        url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=1670815861.1fb234f.b9690c21d125435a8f722856f8043ea2&count=10',
         success: function (responseData) {
             min_tag_id = responseData.pagination.min_tag_id;
             addInstagramItems(responseData.data);
@@ -70,7 +70,7 @@ function refreshInstagramTick() {
             type: 'GET',
             dataType: 'jsonp',
             crossDomain: true,
-            url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=17214349.61a93cb.30a019863185447abb45144ac5713ced&min_tag_id=' + min_tag_id,
+            url: 'https://api.instagram.com/v1/tags/jiveisrael/media/recent?access_token=1670815861.1fb234f.b9690c21d125435a8f722856f8043ea2&min_tag_id=' + min_tag_id,
             success: function (responseData) {
                 if (responseData.data.length > 0) {
                     min_tag_id = responseData.pagination.min_tag_id;
